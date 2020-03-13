@@ -4,7 +4,8 @@
 
 FORCE=''
 
-DOTFILES=( .vimrc .bashrc )
+DOTFILES=( .vimrc .bashrc \
+ 	.tmux.conf )
 
 # make a backup for $1
 function backup() {

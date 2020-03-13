@@ -33,6 +33,9 @@ Plugin 'L9'
 
 Plugin 'altercation/vim-colors-solarized'
 
+Plugin 'Valloric/YouCompleteMe'
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,21 +54,54 @@ filetype plugin indent on    " required
 
 " custom settings
 
+" Encoding
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+set fileencoding=utf-8
+set fencs=utf-8,chinese
+
 set nu
 
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
+set smarttab
+set expandtab
 set autoindent
+set smartindent
+
+" Search
+set hlsearch
+set incsearch
+set smartcase
+set ignorecase
 
 set cursorline
 set showmatch
+set wildmenu
+set laststatus=2 " The value of this option influences when the last window will have a
+"                  status line:
+"                    0: never
+"                    1: only if there are at least two windows
+"                    2: always
+set completeopt=menu
+set ruler
 
 set paste
 
-set laststatus=2
-set ruler
-
 filetype plugin indent on
+
+" file property
+
+autocmd FileType crontab setlocal nowritebackup
+autocmd FileType make set noexpandtab
+
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+autocmd BufRead,BufNewFile nginx.conf set ft=nginx
+autocmd BufRead,BufNewFile */nginx*/*.conf set ft=nginx
+
+
 
 " color scheme
 syntax enable
@@ -74,6 +110,7 @@ let g:solarized_termcolors=256
 " transparent background colorSchema
 let g:solarized_termtrans=0	
 colorscheme solarized
+
 
 
 
