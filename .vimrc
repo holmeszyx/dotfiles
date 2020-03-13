@@ -84,6 +84,8 @@ set laststatus=2 " The value of this option influences when the last window will
 "                    0: never
 "                    1: only if there are at least two windows
 "                    2: always
+highlight Cursor guifg=white guibg=red
+highlight iCursor guifg=white guibg=red
 set completeopt=menu
 set ruler
 
