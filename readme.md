@@ -19,7 +19,7 @@ Installing first time maybe with '--force' option.
 	bash bootstrap.sh --force
 	# or
 	bash bootstap.sh
-``
+```
 
 # Update
 
