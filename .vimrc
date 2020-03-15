@@ -50,6 +50,12 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
+
+" Plugin sets
+
+" YCM
+let g:ycm_key_invoke_completion = '<c-space>'
+
 " Put your non-Plugin stuff after this line
 
 " custom settings
@@ -62,6 +68,12 @@ set fencs=utf-8,chinese
 
 set nu
 
+" Change mapleader
+let mapleader=","
+
+"Optimize for fast terminal connections
+set ttyfast
+
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -69,6 +81,13 @@ set smarttab
 set expandtab
 set autoindent
 set smartindent
+
+" Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set list
+
+" Enable mouse in all modes
+set mouse=a
 
 " Search
 set hlsearch
@@ -89,7 +108,37 @@ highlight iCursor guifg=white guibg=red
 set completeopt=menu
 set ruler
 
-set paste
+" Show the current mode
+set showmode
+" Show the filename in the window titlebar
+set title
+" Show the (partial) command as it’s being typed
+set showcmd
+
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
+" broken ycm
+" set paste
+set pastetoggle=<F10>
+
+if !has("gui_running")
+    inoremap <C-@> <C-x><C-o>
+endif
+
+
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
 
 filetype plugin indent on
 
@@ -103,6 +152,8 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 autocmd BufRead,BufNewFile nginx.conf set ft=nginx
 autocmd BufRead,BufNewFile */nginx*/*.conf set ft=nginx
 
+" Treat .md files as Markdown
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 
 
 " color scheme
