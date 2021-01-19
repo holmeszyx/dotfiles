@@ -27,15 +27,16 @@ Pull by git.
 
 # For initialize base VIM config
 
-### Vundle
+### Plug-vim
 
 ```
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Then 
 
-open `vim` and run `:PluginInstall`
+open `vim` and run `:PlugInstall`
 
 ### Install YouCompleteMe
 
@@ -63,7 +64,7 @@ yum install cmake gcc-c++ make python3-devel
 
 ```
 
-cd ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
 
 # For C Family
 python3 install.py --clang-completer
