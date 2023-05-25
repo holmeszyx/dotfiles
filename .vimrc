@@ -22,11 +22,17 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'altercation/vim-colors-solarized'
 
-Plug 'Valloric/YouCompleteMe'
-" or
-" Plug 'https://gitee.com/mirrors/youcompleteme.git'
-
 Plug 'vim-airline/vim-airline'
+
+" auto-completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
 " Initialize plugin system
 call plug#end()

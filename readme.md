@@ -38,40 +38,11 @@ Then
 
 open `vim` and run `:PlugInstall`
 
-### Install YouCompleteMe
-
-- Prepare
-
-`Ubuntu`
+### deoplete
 
 ```
-sudo apt install build-essential cmake python3-dev
-```
-
-`Fedora`
-
-```
-dnf install cmake gcc-c++ make python3-devel
-```
-
-`yum`
-
-```
-yum install cmake gcc-c++ make python3-devel
-```
-
-- Install
-
-```
-
-cd ~/.vim/plugged/YouCompleteMe
-
-# For C Family
-python3 install.py --clang-completer
-# or
-# No C
-python3 install.py
-
+pip3 install msgpack
+pip3 install pynvim
 ```
 
 
