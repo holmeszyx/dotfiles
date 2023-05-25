@@ -52,7 +52,7 @@ filetype plugin indent on    " required
 " Plugin sets
 
 " YCM
-let g:ycm_key_invoke_completion = '<c-space>'
+" let g:ycm_key_invoke_completion = '<c-space>'
 
 " Put your non-Plugin stuff after this line
 
@@ -136,6 +136,9 @@ endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 
 filetype plugin indent on
