@@ -25,14 +25,10 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 
 " auto-completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+Plug 'jayli/vim-easycomplete'
+Plug 'SirVer/ultisnips'
+
+let g:easycomplete_tab_trigger="<c-space>"
 
 " Initialize plugin system
 call plug#end()

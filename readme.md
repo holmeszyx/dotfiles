@@ -38,11 +38,8 @@ Then
 
 open `vim` and run `:PlugInstall`
 
-### deoplete
+### EasyComplete
 
-```
-pip3 install msgpack
-pip3 install pynvim
-```
+Run `:PlugInstall`
 
 
