@@ -28,8 +28,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'jayli/vim-easycomplete'
 Plug 'SirVer/ultisnips'
 
-let g:easycomplete_tab_trigger="<c-space>"
-
 " Initialize plugin system
 call plug#end()
 
@@ -53,6 +51,12 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " custom settings
+" let g:easycomplete_tab_trigger='<C-space>'    " not compat
+let g:easycomplete_cursor_word_hl=1
+let g:easycomplete_nerd_font=1
+let g:easycomplete_diagnostics_enable=0
+nnoremap <silent> <C-n> :EasyCompleteNextDiagnostic<CR>
+nnoremap <silent> <C-p> :EasyCompletePreviousDiagnostic<CR>
 
 " Encoding
 set encoding=utf-8
@@ -99,7 +103,7 @@ set laststatus=2 " The value of this option influences when the last window will
 "                    2: always
 highlight Cursor guifg=white guibg=red
 highlight iCursor guifg=white guibg=red
-set completeopt=menu
+" set completeopt=menu
 set ruler
 
 " Show the current mode
@@ -133,11 +137,6 @@ noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-
-filetype plugin indent on
 
 " file property
 
